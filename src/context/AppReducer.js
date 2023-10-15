@@ -17,7 +17,7 @@ export default (state, action) =>{
                 break;
             case 'get':
                 return{
-                    transactions : [...action.just]
+                    transactions : action.just
                 }
 
         default :

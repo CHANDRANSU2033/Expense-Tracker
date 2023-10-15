@@ -37,7 +37,7 @@ export const GlobalProvider = ({children}) =>{
 	const getData = ()=>{
 		const paisa = localStorage.getItem('datakeys');
 		const required = JSON.parse(paisa);
-		console.log(paisa)
+		// console.log(paisa)
 		dispatch({
 			type : 'get',
 			just : required

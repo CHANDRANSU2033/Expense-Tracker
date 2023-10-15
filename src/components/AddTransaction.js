@@ -8,16 +8,21 @@ const AddTransactoin = () => {
     const {addTransactions,saveTransactions,getData} = useContext(GlobalContext);
 
     useEffect(() =>{
-      getData();
+      getData()
     },[])
     const onSubmit = (e)=>{
       e.preventDefault();
+      if(text.string === 0 || amount === undefined )alert('Invalid Input')
+      else{
+        console.log(amount)
       const newTransactions ={
           id : Math.floor(Math.random()*100000000),
           text,
           amount: +amount
       }
-      addTransactions(newTransactions)
+      addTransactions(newTransactions) 
+
+    }
 
     }
 
@@ -39,7 +44,7 @@ const AddTransactoin = () => {
         </div>
         <button className="btn">Add transaction</button>
       </form>
-      <button className="btn" onClick = {()=>{ saveTransactions() }}>save</button>
+      <button className="btn" onClick = {()=>{ saveTransactions();alert("Saved!") }}>save</button>
     </>
   )
 }
