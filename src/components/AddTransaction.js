@@ -1,11 +1,15 @@
-import React ,{useState, useContext}from 'react'
+import React ,{useState, useContext, useEffect}from 'react'
 import { GlobalContext } from '../context/GlobalState';
 const AddTransactoin = () => {
 
     const [text , setText] = useState("");
     const [amount , setAmount] = useState();
 
-    const {addTransactions} = useContext(GlobalContext);
+    const {addTransactions,saveTransactions,getData} = useContext(GlobalContext);
+
+    useEffect(() =>{
+      getData();
+    },[])
     const onSubmit = (e)=>{
       e.preventDefault();
       const newTransactions ={
@@ -35,6 +39,7 @@ const AddTransactoin = () => {
         </div>
         <button className="btn">Add transaction</button>
       </form>
+      <button className="btn" onClick = {()=>{ saveTransactions() }}>save</button>
     </>
   )
 }

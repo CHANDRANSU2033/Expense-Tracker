@@ -14,6 +14,12 @@ export default (state, action) =>{
                     transactions : [ action.just, ...state.transactions ]
                     
                 }
+                break;
+            case 'get':
+                return{
+                    transactions : [...action.just]
+                }
+
         default :
             return state;
     }

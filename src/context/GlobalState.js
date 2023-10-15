@@ -35,12 +35,28 @@ export const GlobalProvider = ({children}) =>{
 		})
 	}
 
+	const saveTransactions = ()=>{
+		localStorage.setItem('datakeys',JSON.stringify(state.transactions) )
+	} 
+
+	const getData = ()=>{
+		const paisa = localStorage.getItem('datakeys');
+		const required = JSON.parse(paisa);
+		console.log(paisa)
+		dispatch({
+			type : 'get',
+			just : required
+		})
+	}
+
 
 	return (
 		<GlobalContext.Provider value = {{
 			transactions : state.transactions,
 			deleteTransactions,
-			addTransactions
+			addTransactions,
+			saveTransactions,
+			getData
 		}}>
 			{children}
 		</GlobalContext.Provider>
