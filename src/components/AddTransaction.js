@@ -5,7 +5,7 @@ const AddTransactoin = () => {
     const [text , setText] = useState("");
     const [amount , setAmount] = useState();
 
-    const {addTransactions,saveTransactions,getData} = useContext(GlobalContext);
+    const {transactions,addTransactions,saveTransactions,getData} = useContext(GlobalContext);
 
     useEffect(() =>{
       getData()
@@ -16,7 +16,8 @@ const AddTransactoin = () => {
       else{
         console.log(amount)
       const newTransactions ={
-          id : Math.floor(Math.random()*100000000),
+          // id : Math.floor(Math.random()*100000000),
+          id : transactions.length + 1,
           text,
           amount: +amount
       }
