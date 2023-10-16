@@ -11,7 +11,7 @@ export default (state, action) =>{
                 console.log(state.transactions)
                 return{
                     
-                    transactions : [ action.just, ...state.transactions ]
+                    transactions : [  ...state.transactions,action.just ]
                     
                 }
                 break;
